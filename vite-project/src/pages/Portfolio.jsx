@@ -1,20 +1,30 @@
-export default function Contact() {
+import React from 'react';
+
+export default function Portfolio() {
     return (
-      <div>
-        <h1>Contact Page</h1>
-        <p>
-          Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
-          molestie urna. Aliquam semper ultrices varius. Aliquam faucibus sit amet
-          magna a ultrices. Aenean pellentesque placerat lacus imperdiet
-          efficitur. In felis nisl, luctus non ante euismod, tincidunt bibendum
-          mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-          posuere, eget tristique dui dapibus. Maecenas fermentum elementum
-          faucibus. Quisque nec metus vestibulum, egestas massa eu, sollicitudin
-          ipsum. Nulla facilisi. Sed ut erat ligula. Nam tincidunt nunc in nibh
-          dictum ullamcorper. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
-          rhoncus. Etiam vel condimentum magna, quis tempor nulla.
-        </p>
+        <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-6 mb-4">
+            <div className="portfolio-item bg-primary h-100 d-flex align-items-center justify-content-center">
+              <h3>Project 1</h3>
+            </div>
+          </div>
+          <div className="col-md-6 mb-4">
+            <div className="portfolio-item bg-success h-100 d-flex align-items-center justify-content-center">
+              <h3>Project 2</h3>
+            </div>
+          </div>
+          <div className="col-md-6 mb-4">
+            <div className="portfolio-item bg-warning h-100 d-flex align-items-center justify-content-center">
+              <h3>Project 3</h3>
+            </div>
+          </div>
+          <div className="col-md-6 mb-4">
+            <div className="portfolio-item bg-danger h-100 d-flex align-items-center justify-content-center">
+              <h3>Project 4</h3>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
