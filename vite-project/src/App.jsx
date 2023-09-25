@@ -1,14 +1,16 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Project from './components/Project';
+import { Outlet } from 'react-router-dom';
+import Nav from './components/Navbar'; 
 
-export default function App() {
+function App() {
   return (
-    <div>
-      <Header />
-      <Project />
-      <Footer />
-    </div>
+    <>
+      <Nav /> 
+      <main className="mx-3">
+        <Outlet />
+      </main>
+    </>
   );
 }
+
+export default App;
