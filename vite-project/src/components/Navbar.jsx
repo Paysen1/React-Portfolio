@@ -5,8 +5,8 @@ function Navigation() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <Link className="navbar-brand" to="/">
-            Paysen
+          <Link className="navbar-brand" to="/AboutMe">
+            Paysen Lund
           </Link>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
