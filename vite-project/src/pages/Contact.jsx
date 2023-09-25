@@ -1,21 +1,103 @@
+import React, { useState } from 'react';
+
 export default function Contact() {
-    return (
-      <div>
-        <h1>Contact Page</h1>
-        <p>
-          Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
-          molestie urna. Aliquam semper ultrices varius. Aliquam faucibus sit amet
-          magna a ultrices. Aenean pellentesque placerat lacus imperdiet
-          efficitur. In felis nisl, luctus non ante euismod, tincidunt bibendum
-          mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-          posuere, eget tristique dui dapibus. Maecenas fermentum elementum
-          faucibus. Quisque nec metus vestibulum, egestas massa eu, sollicitudin
-          ipsum. Nulla facilisi. Sed ut erat ligula. Nam tincidunt nunc in nibh
-          dictum ullamcorper. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
-          rhoncus. Etiam vel condimentum magna, quis tempor nulla.
-        </p>
-      </div>
-    );
-  }
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormData({
+        ...formData,
+        [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const errors = {};
+    if (formData.name.trim() === '') {
+      errors.name = 'Please enter your name';
+    }
+    if (formData.email.trim() === '') {
+      errors.email = 'Please enter your email';
+    }
+    if (formData.message.trim() === '') {
+      errors.message = 'Please enter a message';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+    } else {
+      console.log('Form submitted:', formData);
+    }
+  };
   
+
+  return (
+    <div>
+      <h1>Contact Page</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            className={`form-control ${formErrors.name ? 'is-invalid' : ''}`}
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          {formErrors.name && (
+            <div className="invalid-feedback">{formErrors.name}</div>
+          )}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            className={`form-control ${formErrors.email ? 'is-invalid' : ''}`}
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          {formErrors.email && (
+            <div className="invalid-feedback">{formErrors.email}</div>
+          )}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="message" className="form-label">
+            Message
+          </label>
+          <textarea
+            className={`form-control ${formErrors.message ? 'is-invalid' : ''}`}
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+          ></textarea>
+          {formErrors.message && (
+            <div className="invalid-feedback">{formErrors.message}</div>
+          )}
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+}
