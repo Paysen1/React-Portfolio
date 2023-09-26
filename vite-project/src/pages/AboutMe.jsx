@@ -15,7 +15,8 @@ export default function About() {
           <h1>About Me</h1>
           <p>
             Hello, my name is Paysen Gage Lund. I am currently a student at The
-            University of Minnesota TW.
+            University of Minnesota TW. Some of my hobbies include riding bikes, going swimming, and anything puzzle related. I find interest in almost anything comutor related and 
+            I think everyone has the ability to be great. So that was a little about me, I hope you enjoy my website!
           </p>
         </div>
       </div>
